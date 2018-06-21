@@ -16,13 +16,11 @@ public class Pedidos {
 	private static int Cantidad = 0;
 
 	/**
+	 * Método principal del proyecto, itera a través de un diálogo si es que se desea tomar nuevos pedidos.
+	 * @author noestab
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		/*
-		 * CompletableFuture.runAsync(() -> { tomarPedido(); });
-		 */
 		tomarPedido();
 		boolean continuar = true;
 		while (continuar) {
@@ -39,6 +37,12 @@ public class Pedidos {
 		}
 	}
 
+	/**
+	 * Método encargado de realizar el levantamiento de nuevos pedidos a través de un diálogo de entrada
+	 * una vez ingresado el pedido (tipo de pizza y cantidad) envía la petición de manera asíncrona para la preparación de la pizza.
+	 * @author noestab
+	 * @return void
+	 */
 	public static void tomarPedido() {
 		try {
 
@@ -60,10 +64,10 @@ public class Pedidos {
 				break;
 			case "Mexicana":
 				PizzaAOrdenar = new Pizza(Tipo,
-						new String[] { "Chorizo", "Chile Jalape�o", "Cebolla", "Jitomate", "Aguacate" });
+						new String[] { "Chorizo", "Chile Jalapeño", "Cebolla", "Jitomate", "Aguacate" });
 				break;
 			case "Hawaii":
-				PizzaAOrdenar = new Pizza(Tipo, new String[] { "Jam�n", "Pi�a", "Queso Mozzarella" });
+				PizzaAOrdenar = new Pizza(Tipo, new String[] { "Jamón", "Piña", "Queso Mozzarella" });
 				break;
 			case "Classica":
 				PizzaAOrdenar = new Pizza(Tipo, new String[] { "Queso Mozarella", "Pepperoni", "Salami" });
@@ -86,6 +90,14 @@ public class Pedidos {
 
 	}
 
+	/**
+	 * Método encargado de iterar de acuerdo a la cantidad solicitada los procesos de preparación de la pizza
+	 * se tendrá un espacio de tiempo de 1 segundo entre cada proceso.
+	 * @author noestab
+	 * @param pizza 	Indica el tipo de pizza y sus ingredientes
+	 * @param cantidad	Indica la cantidad de pizzas a preparar
+	 * @return void
+	 */
 	public static void realizarPedido(Pizza pizza, int cantidad) {
 		try {
 			String[] Procesos = new String[] { "en pedido", "en armado", "en horno", "en empacado",
